@@ -15,8 +15,8 @@ SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
 # Environment variables
-LANG=en_US.UTF-8
-LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Use modern completion system
 autoload -Uz compinit

@@ -98,3 +98,23 @@ let g:airline_left_alt_sep = '|'
 let g:airline_right_sep = ' '
 let g:airline_right_alt_sep = '|'
 let g:airline_theme= 'serene'
+
+autocmd BufNewFile *.cpp exec ":call AddHeader()"
+autocmd BufNewFile *.hpp exec ":call AddHeader()"
+autocmd BufNewFile *.c exec ":call AddHeader()"
+autocmd BufNewFile *.h exec ":call AddHeader()"
+autocmd BufNewFile *.cc exec ":call AddHeader()"
+map <F4> :call AddHeader()<cr>'s
+function AddHeader()
+  call append(0, "/*****************************************************************************")
+  call append(1, " *                                                                           *")
+  call append(2, " * ".expand("%:t").repeat(" ", 45 - len("".expand("%:t"))).strftime("%a %d %b %Y %X")."  *")
+  call append(3, " *                                                                           *")
+  call append(4, " * Copyright (C) 2019-2022, Marco Montero.                                   *")
+  call append(5, " *                                                                           *")
+  call append(6, " * <marco.montero.m@gmail.com>                                               *")
+  call append(7, " *                                                                           *")
+  call append(8, " *****************************************************************************/")
+  echoh1 WarningMsg | echo "Succeeded in adding copyright." | echoh1 None
+endfunction
+
